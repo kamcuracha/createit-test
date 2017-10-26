@@ -1,0 +1,137 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+}
+
+h3, .h3 {
+    font-size: 20px;
+}
+
+p {
+    margin: 0;
+    line-height: 21px;
+    color: #666;
+}
+
+/**/
+.breadcrumb {
+    background: none;
+    a {
+        color: #fff;
+    }
+}
+
+.media {
+    margin-bottom: 30px;
+    .fa-stack {
+        color: $accent-color;
+        &-1x {
+            color: #fff;
+        }
+    }
+}
+
+.accordion {
+    .panel {
+        border-bottom: solid 1px $background-light;
+    }
+    h4 {
+        margin: 16px 0;
+    }
+    a {
+        color: #333;
+        font-weight: bolder;
+    }
+    p {
+        padding-bottom: 16px;
+    }
+}
+
+.progress {
+    height: 2px;
+    margin-bottom: 24px;
+    &-holder span {
+        display: inline-block;
+        margin-bottom: 7px;
+    }
+    &-label {
+        text-transform: uppercase;
+    }
+    &-bar {
+        background-color: $primary-color;
+    }
+}
+
+.carousel {
+    &-caption {
+        top: 50%;
+        transform: translateY(-50%);
+    }
+    &-indicators {
+        bottom: 50px;
+    }
+    i {
+        position: absolute;
+        top: 50%;
+        margin-top: -10px;
+        z-index: 5;
+        display: inline-block;
+    }
+}
+
+.card {
+    h3 {
+        margin: 16px 0 8px;
+        font-size: 18px;
+        font-weight: bolder;
+    }
+    li {
+        display: inline-block;
+        margin-right: 1rem;
+    }
+    a {
+        color: #999999;
+        &:hover {
+            color: #333;
+        }
+    }
+}
+
+/**/
+.section-heading {
+    margin-bottom: 40px;
+}
+
+.pre-context {
+    display: block;
+    margin-bottom: 10px;
+    font-size: 11px;
+    font-weight: bolder;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6a6174;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 13px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    &-primary {
+        background-color: $accent-color;
+        border-color: $accent-color;
+        &:hover {
+            background-color: $accent-color;
+            border-color: $accent-color;
+            opacity: 0.5;
+        }
+    }
+}
+
+.bg-primary {
+    background-color: $primary-color;
+}
+
+.bg-light {
+    background-color: $background-light;
+}

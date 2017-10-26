@@ -1,0 +1,23 @@
+.navbar {
+    margin: 0;
+    background-color: #fff; 
+    &-brand {
+        height: auto;
+    }
+    &-nav {
+        display: block;
+        margin: 10px 0;
+        & li.active {
+            a {
+                background-color: transparent !important;
+            }
+            a:after {
+                position: relative;
+                top: 5px;
+                display: block;
+                content: "";
+                border-bottom: solid 2px $accent-color;
+            }
+        }
+    }
+}
