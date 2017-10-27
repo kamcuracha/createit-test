@@ -110,7 +110,7 @@ p {
   color: #666;
 }
 
-/**/
+/* Components */
 .breadcrumb {
   background: none;
 }
@@ -203,7 +203,36 @@ p {
   color: #333;
 }
 
-/**/
+.return-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #ea623d;
+  width: 50px;
+  height: 50px;
+  display: block;
+  text-decoration: none;
+  border-radius: 35px;
+  display: none;
+  transition: all 0.3s ease;
+}
+
+.return-to-top i {
+  color: #fff;
+  margin: 0;
+  position: relative;
+  left: 16px;
+  top: 13px;
+  font-size: 19px;
+  transition: all 0.3s ease;
+}
+
+.return-to-top i:hover {
+  color: #fff;
+  top: 5px;
+}
+
+/* Misc */
 .section-heading {
   margin-bottom: 40px;
 }
