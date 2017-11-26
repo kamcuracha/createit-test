@@ -1,12 +1,23 @@
-var elixir = require('laravel-elixir');
+'use strict';
 
-// Uncomment below for gulp --production 
-//elixir.config.sourcemaps = false;
+var gulp = require('gulp'),
+	sass = require('gulp-sass'),
+	sourcemaps = require('gulp-sourcemaps');
 
-elixir((mix) => {
-	mix
-	.sass('bootstrap-custom.scss', 'assets/css/bootstrap.css', 'assets/scss/vendor/bootstrap')
-	.sass('basscss-custom.scss', 'assets/css/basscss.css', 'assets/scss/vendor/basscss')
-	.sass('font-awesome.scss', 'assets/css/font-awesome.css', 'assets/scss/vendor/font-awesome')
-	.sass('main.scss', 'assets/css/main.css', 'assets/scss')
+gulp.task('sass', function () {
+	return gulp.src([
+			'./assets/scss/vendor/bootstrap/bootstrap-custom.scss',
+			'./assets/scss/vendor/basscss/basscss-custom.scss',
+			'./assets/scss/vendor/font-awesome/font-awesome.scss',
+			'./assets/scss/main.scss'
+		])
+		.pipe(sourcemaps.init())
+		// :nested, :expanded, :compact, :compressed
+		.pipe(sass.sync({outputStyle: 'compact'}).on('error', sass.logError))
+		.pipe(sourcemaps.write('./'))
+		.pipe(gulp.dest('./assets/css'));
+});
+
+gulp.task('sass:watch', function () {
+	gulp.watch('./assets/scss/**/*.scss', ['sass']);
 });
