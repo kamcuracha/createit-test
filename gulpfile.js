@@ -2,7 +2,8 @@
 
 var gulp = require('gulp'),
 	sass = require('gulp-sass'),
-	sourcemaps = require('gulp-sourcemaps');
+	sourcemaps = require('gulp-sourcemaps'),
+	imagemin = require('gulp-imagemin');
 
 gulp.task('sass', function () {
 	return gulp.src([
@@ -20,4 +21,10 @@ gulp.task('sass', function () {
 
 gulp.task('sass:watch', function () {
 	gulp.watch('./assets/scss/**/*.scss', ['sass']);
+});
+
+gulp.task('imagemin', function(){
+	return gulp.src('./assets/img/**/*.+(png|jpg|gif|svg)')
+		.pipe(imagemin())
+		.pipe(gulp.dest('./assets/img'))
 });
