@@ -3,7 +3,10 @@
 var gulp = require('gulp'),
 	sass = require('gulp-sass'),
 	sourcemaps = require('gulp-sourcemaps'),
-	imagemin = require('gulp-imagemin');
+	uglify = require('gulp-uglify'),
+	pump = require('pump'),
+	imagemin = require('gulp-imagemin'),
+	rename = require("gulp-rename");
 
 gulp.task('sass', function () {
 	return gulp.src([
@@ -21,6 +24,19 @@ gulp.task('sass', function () {
 
 gulp.task('sass:watch', function () {
 	gulp.watch('./assets/scss/**/*.scss', ['sass']);
+});
+
+gulp.task('uglify', function (cb) {
+	pump([
+			gulp.src('./assets/js/main.js'),
+			sourcemaps.init(),
+			uglify(),
+			rename({ suffix: '.min' }),
+			sourcemaps.write('./'),
+			gulp.dest('./assets/js/')
+		],
+		cb
+	);
 });
 
 gulp.task('imagemin', function(){

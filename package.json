@@ -12,9 +12,14 @@
     "gulp-plumber": "^1.1.0",
     "gulp-sass": "^3.1.0",
     "gulp-sourcemaps": "^2.5.0",
+    "gulp-uglify": "^3.0.0",
     "jquery": "~2.2",
     "jquery.appear": "^1.0.1",
     "sass-font-awesome": "^1.0.0"
   },
-  "private": true
+  "private": true,
+  "dependencies": {
+    "gulp-rename": "^1.2.2",
+    "pump": "^1.0.3"
+  }
 }
