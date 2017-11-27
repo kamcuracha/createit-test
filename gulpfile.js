@@ -6,7 +6,8 @@ var gulp = require('gulp'),
 	uglify = require('gulp-uglify'),
 	pump = require('pump'),
 	imagemin = require('gulp-imagemin'),
-	rename = require("gulp-rename");
+	rename = require("gulp-rename"),
+	runSequence = require('run-sequence');
 
 gulp.task('sass', function () {
 	return gulp.src([
@@ -18,6 +19,9 @@ gulp.task('sass', function () {
 		.pipe(sourcemaps.init())
 		// :nested, :expanded, :compact, :compressed
 		.pipe(sass.sync({outputStyle: 'compact'}).on('error', sass.logError))
+		.pipe(rename(function (path) {
+			path.basename = path.basename.replace('-custom', '');
+		}))
 		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('./assets/css'));
 });
@@ -43,4 +47,12 @@ gulp.task('imagemin', function(){
 	return gulp.src('./assets/img/**/*.+(png|jpg|gif|svg)')
 		.pipe(imagemin())
 		.pipe(gulp.dest('./assets/img'))
+});
+  
+gulp.task('default', function (callback) {
+	runSequence('uglify',
+		'imagemin',
+		['sass', 'sass:watch'],
+		callback
+	)
 });
