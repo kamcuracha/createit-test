@@ -21,6 +21,7 @@
   },
   "private": true,
   "dependencies": {
+    "gulp-if": "^2.0.2",
     "pump": "^1.0.3"
   }
 }

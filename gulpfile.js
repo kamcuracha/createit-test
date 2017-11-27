@@ -7,7 +7,11 @@ var gulp = require('gulp'),
 	pump = require('pump'),
 	imagemin = require('gulp-imagemin'),
 	rename = require("gulp-rename"),
+	gulpif = require('gulp-if'),
 	runSequence = require('run-sequence');
+
+var compressjs = false,
+	compressimg = false;
 
 gulp.task('sass', function () {
 	return gulp.src([
@@ -30,28 +34,29 @@ gulp.task('sass:watch', function () {
 	gulp.watch('./assets/scss/**/*.scss', ['sass']);
 });
 
-gulp.task('uglify', function (cb) {
+gulp.task('compressjs', function (cb) {
 	pump([
 			gulp.src('./assets/js/main.js'),
-			sourcemaps.init(),
-			uglify(),
-			rename({ suffix: '.min' }),
-			sourcemaps.write('./'),
+			gulpif(compressjs, sourcemaps.init()),
+			gulpif(compressjs, uglify()),
+			gulpif(compressjs, rename({ suffix: '.min' })),
+			gulpif(compressjs, sourcemaps.write('./')),
 			gulp.dest('./assets/js/')
 		],
 		cb
 	);
 });
 
-gulp.task('imagemin', function(){
+gulp.task('compressimg', function() {
 	return gulp.src('./assets/img/**/*.+(png|jpg|gif|svg)')
-		.pipe(imagemin())
+		.pipe(gulpif(compressimg, imagemin()))
 		.pipe(gulp.dest('./assets/img'))
 });
   
 gulp.task('default', function (callback) {
-	runSequence('uglify',
-		'imagemin',
+	runSequence(
+		'compressjs',
+		'compressimg',
 		['sass', 'sass:watch'],
 		callback
 	)
