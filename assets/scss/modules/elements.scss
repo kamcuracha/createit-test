@@ -1,6 +1,13 @@
+@import "../vendor/bootstrap/bootstrap-grid.scss";
+
 body {
     font-family: 'Open Sans', sans-serif;
+    font-size: 14px;
     font-weight: normal;
+}
+
+h2, .h2 {
+    font-size: 30px;
 }
 
 h3, .h3 {
@@ -9,6 +16,7 @@ h3, .h3 {
 
 p {
     margin: 0;
+    font-size: 14px;
     line-height: 21px;
     color: #666;
 }
@@ -16,13 +24,20 @@ p {
 /* Components */
 .breadcrumb {
     background: none;
+    > li + li::before {
+        content: "/ ";
+        color: rgb(204, 204, 204);
+        padding: 0px 5px;
+    }
     a {
         color: #fff;
+    }
+    > .active {
+        color: rgb(119, 119, 119);
     }
 }
 
 .media {
-    margin-bottom: 30px;
     .fa-stack {
         color: $accent-color;
         &-1x {
@@ -32,11 +47,8 @@ p {
 }
 
 .accordion {
-    .panel {
+    .item {
         border-bottom: solid 1px $background-light;
-    }
-    h4 {
-        margin: 16px 0;
     }
     a {
         color: #333;
@@ -63,27 +75,45 @@ p {
 }
 
 .carousel {
+    @include media-breakpoint-down(sm) {
+        h2 {
+            font-size: 20px;
+        }
+        span {
+            display: none;
+        }
+    }
+    @include media-breakpoint-down(xs) {
+        h2 {
+            font-size: 16px;
+        }
+    }
     &-caption {
         top: 50%;
         transform: translateY(-50%);
-    }
-    &-indicators {
-        bottom: 50px;
-    }
-    i {
-        position: absolute;
-        top: 50%;
-        margin-top: -10px;
-        z-index: 5;
-        display: inline-block;
+        @include media-breakpoint-down(xs) {
+            top: unset;
+            transform: translateY(0%);
+        }
     }
 }
 
 .card {
+    @include media-breakpoint-down(md) {
+        margin-bottom: 30px;
+    }
     h3 {
         margin: 16px 0 8px;
         font-size: 18px;
         font-weight: bolder;
+    }
+    p {
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    ul {
+        padding: 0;
+        margin-top: 1rem;
     }
     li {
         display: inline-block;
@@ -98,39 +128,45 @@ p {
 }
 
 .return-to-top {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: $accent-color;
-    width: 50px;
-    height: 50px;
-    display: block;
-    text-decoration: none;
-    -webkit-border-radius: 35px;
-    -moz-border-radius: 35px;
-    border-radius: 35px;
-    display: none;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s ease;
-    -ms-transition: all 0.3s ease;
-    -o-transition: all 0.3s ease;
-    transition: all 0.3s ease;
-    i {
-        color: #fff;
-        margin: 0;
-        position: relative;
-        left: 16px;
-        top: 13px;
-        font-size: 19px;
-        -webkit-transition: all 0.3s ease;
+    @include media-breakpoint-up(sm) {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1;
+        background: $accent-color;
+        width: 50px;
+        height: 50px;
+        display: block;
+        text-decoration: none;
+        -webkit-border-radius: 35px;
+        -moz-border-radius: 35px;
+        border-radius: 35px;
+        display: none;
+        -webkit-transition: all 0.3s linear;
         -moz-transition: all 0.3s ease;
         -ms-transition: all 0.3s ease;
         -o-transition: all 0.3s ease;
         transition: all 0.3s ease;
-        &:hover {
+        i {
             color: #fff;
-            top: 5px;
+            margin: 0;
+            position: relative;
+            left: 16px;
+            top: 13px;
+            font-size: 19px;
+            -webkit-transition: all 0.3s ease;
+            -moz-transition: all 0.3s ease;
+            -ms-transition: all 0.3s ease;
+            -o-transition: all 0.3s ease;
+            transition: all 0.3s ease;
+            &:hover {
+                color: #fff;
+                top: 5px;
+            }
         }
+    }
+    @include media-breakpoint-down(sm) {
+        display: none !important;
     }
 }
 
@@ -151,7 +187,7 @@ p {
 
 .btn {
     padding: 10px 20px;
-    font-size: 13px;
+    font-size: 14px;
     letter-spacing: 1px;
     text-transform: uppercase;
     &-primary {

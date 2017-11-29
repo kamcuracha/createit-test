@@ -16,9 +16,10 @@
         }
     }
     .form-control {
-        height: 40px;
+        height: 42px;
         padding: 6px 12px;
-        margin: 8px 0;
+        margin: 9px 0;
+        font-size: 14px;
     }
     .btn {
         vertical-align: bottom;
@@ -33,6 +34,9 @@
         letter-spacing: 1px;
         text-transform: uppercase;
         padding-bottom: 10px;
+        img {
+            opacity: 0.5;
+        }
     }
     a {
         color: $accent-color;
@@ -42,14 +46,13 @@
     }
     p {
         color: #fff;
-        &.muted {
+        &.text-muted {
             font-size: 13px;
             line-height: 27px;
         }
     }
     ul.photo-stream > li {
-        display: inline-block;
-        margin-right: 0.5rem;
+        margin-right: 0.10rem;
     }
     li {
         margin-bottom: 10px;

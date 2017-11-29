@@ -1,3 +1,5 @@
+@import "../vendor/bootstrap/bootstrap-grid.scss";
+
 .navbar {
     margin: 0;
     background-color: #fff; 
@@ -5,18 +7,20 @@
         height: auto;
     }
     &-nav {
-        display: block;
         margin: 10px 0;
+        & a.nav-link {
+            padding: 15px !important;
+            line-height: 20px;
+        }
         & li.active {
-            a {
-                background-color: transparent !important;
-            }
-            a:after {
-                position: relative;
-                top: 5px;
-                display: block;
-                content: "";
-                border-bottom: solid 2px $accent-color;
+            @include media-breakpoint-up(lg) {
+                a:after {
+                    position: relative;
+                    top: 4px;
+                    display: block;
+                    content: "";
+                    border-bottom: solid 2px $accent-color;
+                }
             }
         }
     }

@@ -16,7 +16,6 @@ var compressjs = false,
 gulp.task('sass', function () {
 	return gulp.src([
 			'./assets/scss/vendor/bootstrap/bootstrap-custom.scss',
-			'./assets/scss/vendor/basscss/basscss-custom.scss',
 			'./assets/scss/vendor/font-awesome/font-awesome.scss',
 			'./assets/scss/main.scss'
 		])

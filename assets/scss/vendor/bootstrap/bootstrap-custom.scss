@@ -1,56 +1,42 @@
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v4.0.0-beta.2 (https://getbootstrap.com)
+ * Copyright 2011-2017 The Bootstrap Authors
+ * Copyright 2011-2017 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 
-// Core variables and mixins
-@import "src/variables";
-@import "src/mixins";
-
-// Reset and dependencies
-@import "src/normalize";
-@import "src/print";
-@import "src/glyphicons";
-
-// Core CSS
-@import "src/scaffolding";
-@import "src/type";
-@import "src/code";
-@import "src/grid";
-@import "src/tables";
-@import "src/forms";
-@import "src/buttons";
-
-// Components
-@import "src/component-animations";
-@import "src/dropdowns";
-// @import "src/button-groups";
-@import "src/input-groups";
-@import "src/navs";
-@import "src/navbar";
-@import "src/breadcrumbs";
-// @import "src/pagination";
-// @import "src/pager";
-// @import "src/labels";
-// @import "src/badges";
-@import "src/jumbotron";
-@import "src/thumbnails";
-// @import "src/alerts";
-@import "src/progress-bars";
-@import "src/media";
-// @import "src/list-group";
-// @import "src/panels";
-@import "src/responsive-embed";
-// @import "src/wells";
-// @import "src/close";
-
-// Components w/ JavaScript
-@import "src/modals";
-@import "src/tooltip";
-@import "src/popovers";
-@import "src/carousel";
-
-// Utility classes
-@import "src/utilities";
-@import "src/responsive-utilities";
+@import "functions";
+@import "variables";
+@import "mixins";
+@import "root";
+@import "print";
+@import "reboot";
+@import "type";
+@import "images";
+@import "code";
+@import "grid";
+@import "tables";
+@import "forms";
+@import "buttons";
+@import "transitions";
+@import "dropdown";
+// @import "button-group";
+@import "input-group";
+@import "custom-forms";
+@import "nav";
+@import "navbar";
+@import "card";
+@import "breadcrumb";
+// @import "pagination";
+// @import "badge";
+@import "jumbotron";
+// @import "alert";
+@import "progress";
+@import "media";
+// @import "list-group";
+// @import "close";
+@import "modal";
+@import "tooltip";
+@import "popover";
+@import "carousel";
+@import "utilities";

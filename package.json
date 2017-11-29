@@ -21,6 +21,7 @@
   },
   "private": true,
   "dependencies": {
+    "bootstrap": "^4.0.0-beta.2",
     "gulp-if": "^2.0.2",
     "pump": "^1.0.3"
   }
